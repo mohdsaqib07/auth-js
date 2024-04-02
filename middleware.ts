@@ -14,7 +14,7 @@ import {
 
 // middleware works on the edge
 // Prisma ORM/library is not yet compatible with the Edge runtime.
-
+//@ts-expect-error
 export default auth((req) => {
 	//req.auth
 	const { nextUrl } = req;

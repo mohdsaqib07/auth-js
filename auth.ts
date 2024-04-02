@@ -64,12 +64,12 @@ export const {
       }
 
       if (token.isTwoFactorEnabled && session.user) {
-        session.user.isTwoFactorEnabled = token.isTwoFactorEnabled as Boolean;
+        session.user.isTwoFactorEnabled = token.isTwoFactorEnabled as boolean;
       }
-      if (session.user) {
+      if (session.user && token.email) {
         session.user.name = token.name;
         session.user.email = token.email;
-        session.user.isOAuth = token.isOAuth as Boolean;
+        session.user.isOAuth = token.isOAuth as boolean;
       }
       return session;
     },

@@ -142,7 +142,7 @@ export const LoginForm = () => {
 											</FormControl>
 											<Button
 												className="px-0 font-normal"
-												size="small"
+												size="sm"
 												variant="link"
 												asChild
 											>
