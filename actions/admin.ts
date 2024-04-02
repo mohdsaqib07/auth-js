@@ -1,8 +1,8 @@
 "use server";
-import { currentUser } from "@/lib/auth";
+import { currentRole } from "@/lib/auth";
 import { UserRole } from "@prisma/client";
 export const admin = async () => {
-	const role = await currentUser();
+	const role = await currentRole();
 	if (role === UserRole.ADMIN) {
 		return { success: "Allowed!" };
 	}
