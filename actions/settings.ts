@@ -8,9 +8,8 @@ import { getUserByEmail } from "@/data/user";
 import { generateVerificationToken } from "@/lib/tokens";
 import { sendVerificationEmail } from "@/lib/mail";
 import bcrypt from "bcryptjs";
-import { update } from "@/auth";
-export const settings = async (values: z.infer<typeof SettingsSchema>) => {
 
+export const settings = async (values: z.infer<typeof SettingsSchema>) => {
 	const user = await currentUser();
 	if (!user) {
 		return { error: "Unauthorized!" };
@@ -60,15 +59,6 @@ export const settings = async (values: z.infer<typeof SettingsSchema>) => {
 		where: { id: dbUser.id },
 		data: {
 			...values,
-		},
-	});
-
-	update({
-		user: {
-			name: updatedUser.name,
-			email: updatedUser.email,
-			isTwoFactorEnabled: updatedUser.isTwoFactorEnabled,
-			role: updatedUser.role,
 		},
 	});
 
